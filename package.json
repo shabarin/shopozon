@@ -1,0 +1,28 @@
+{
+  "name": "ozon-product-collector",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Browser extension that collects product cards from Ozon search results into local storage",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "icons": "node scripts/make-icons.mjs",
+    "test": "node --test tests/*.test.ts",
+    "test:coverage": "node --test --experimental-test-coverage tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "verify": "npm run typecheck && npm test && npm run build",
+    "accuracy": "node scripts/accuracy-report.ts",
+    "bench": "node scripts/storage-bench.ts"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^27.0.0",
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.28.2",
+    "jsdom": "^31.0.0",
+    "typescript": "^7.0.2"
+  }
+}

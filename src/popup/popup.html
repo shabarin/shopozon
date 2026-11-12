@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ozon Product Collector</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div>
+        <div class="brand">Ozon Collector <span id="version" class="version"></span></div>
+        <div id="status" class="status status-off">
+          <span class="status-dot"></span>
+          <span id="status-text">Сбор выключен</span>
+        </div>
+      </div>
+      <div class="browser" id="browser"></div>
+    </header>
+
+    <div id="warning" class="warning" hidden></div>
+
+    <section class="stats" aria-label="Статистика сбора">
+      <div class="stat">
+        <span class="stat-value" id="stat-cards">0</span>
+        <span class="stat-label">карточек</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="stat-unique">0</span>
+        <span class="stat-label">уникальных</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="stat-total">0</span>
+        <span class="stat-label">в базе</span>
+      </div>
+      <div class="stat stat-error">
+        <span class="stat-value" id="stat-errors">0</span>
+        <span class="stat-label">ошибок</span>
+      </div>
+    </section>
+
+    <section class="meta">
+      <div class="meta-row">
+        <span class="meta-label">Страница</span>
+        <span class="meta-value" id="current-url" title="">—</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-label">Начало</span>
+        <span class="meta-value" id="started-at">—</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-label">Извлечение</span>
+        <span class="meta-value" id="last-extraction">—</span>
+      </div>
+    </section>
+
+    <div class="controls">
+      <button type="button" id="start" class="button button-primary">Начать сбор</button>
+      <button type="button" id="stop" class="button">Остановить</button>
+    </div>
+
+    <section class="export">
+      <label class="export-label" for="scope">Экспорт</label>
+      <select id="scope" class="select">
+        <option value="all">Все данные</option>
+      </select>
+      <div class="export-buttons">
+        <button type="button" id="export-products" class="button button-small">CSV товары</button>
+        <button type="button" id="export-observations" class="button button-small">CSV наблюдения</button>
+        <button type="button" id="export-json" class="button button-small">JSON</button>
+      </div>
+    </section>
+
+    <button type="button" id="clear" class="button button-danger">Очистить накопленные данные</button>
+
+    <footer class="footer">
+      <span id="footer-stats">Данные хранятся только в этом браузере.</span>
+      <span id="parser-version"></span>
+    </footer>
+
+    <div id="message" class="message" role="status" aria-live="polite"></div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
